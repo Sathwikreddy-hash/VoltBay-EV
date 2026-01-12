@@ -1,11 +1,251 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltBay — The Future of EV Infrastructure</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.25.0"
+  }
+}
+</script>
 </head>
-<body style="background:red;color:white;">
-  <h1>VISIBLE TEST PAGE</h1>
-  <p>If you see this, hosting works.</p>
+<body class="bg-white text-slate-900 selection:bg-emerald-500 selection:text-white overflow-x-hidden">
+
+    <!-- Scroll Progress -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-[6px] bg-gradient-to-r from-emerald-500 to-blue-500 z-[70] shadow-[0_0_20px_rgba(16,185,129,0.5)] origin-left scale-x-0 transition-transform duration-100"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[60] w-[92%] max-w-7xl glass rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl">
+        <div class="px-4 md:px-8 flex justify-between h-16 md:h-20 items-center">
+            <div class="flex items-center space-x-2 md:space-x-3 group cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10" stroke-linecap="round" />
+                        <path d="M50 20 L35 55 L50 55 L45 80 L65 40 L50 40 Z" fill="#3b82f6" />
+                    </svg>
+                </div>
+                <div class="flex items-baseline space-x-2">
+                    <span class="text-xl md:text-2xl font-black text-slate-900 tracking-tighter">VoltBay</span>
+                    <div class="flex items-center space-x-1 px-1.5 md:px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100">
+                        <div class="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                        <span class="text-[8px] md:text-[10px] font-black text-emerald-600 uppercase tracking-widest">Live</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-10 text-sm font-black text-slate-500 uppercase tracking-widest">
+                <a href="#features" class="hover:text-emerald-600 transition-colors">Solutions</a>
+                <a href="#app" class="hover:text-emerald-600 transition-colors">Early Access</a>
+                <a href="#about" class="hover:text-emerald-600 transition-colors">Mission</a>
+                <a href="mailto:myvoltbay@gmail.com" class="px-8 py-3 bg-slate-900 text-white rounded-2xl hover:bg-emerald-600 transition-all shadow-xl">Support</a>
+            </div>
+
+            <button id="menu-toggle" class="md:hidden p-2 text-slate-900"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[65] bg-white/98 backdrop-blur-2xl flex flex-col items-center justify-center p-6 translate-y-[-100%] transition-transform duration-500 md:hidden">
+        <div class="flex flex-col space-y-8 text-center">
+            <a href="#features" class="mobile-link text-3xl font-black uppercase tracking-tighter">Solutions</a>
+            <a href="#app" class="mobile-link text-3xl font-black uppercase tracking-tighter">Early Access</a>
+            <a href="#about" class="mobile-link text-3xl font-black uppercase tracking-tighter">Mission</a>
+            <a href="mailto:myvoltbay@gmail.com" class="mobile-link px-10 py-5 bg-slate-900 text-white rounded-3xl text-xl font-black uppercase">Support</a>
+        </div>
+        <button id="menu-close" class="mt-12 p-4 text-slate-400 font-black uppercase tracking-widest text-xs">Close</button>
+    </div>
+
+    <!-- Hero -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 grid-pattern opacity-50 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10 reveal">
+            <div class="mb-12 relative inline-block">
+                <div class="absolute inset-0 bg-emerald-400 blur-3xl opacity-20 animate-pulse"></div>
+                <svg viewBox="0 0 100 100" class="w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl relative">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="6" stroke-dasharray="240 40" stroke-linecap="round"></circle>
+                    <path d="M75 35 L85 25 M78 32 L82 28" stroke="#10b981" stroke-width="4" stroke-linecap="round"></path>
+                    <path d="M50 20 L35 55 L50 55 L45 80 L65 40 L50 40 Z" fill="#3b82f6"></path>
+                </svg>
+            </div>
+            <h1 class="text-6xl md:text-8xl lg:text-[10rem] font-black text-slate-900 tracking-tighter leading-[0.8] mb-8">VoltBay</h1>
+            <p class="text-2xl md:text-4xl font-bold text-slate-400 tracking-tight mb-12">Infrastructure for <span class="text-slate-900">India's electric transition.</span></p>
+
+            <div class="flex flex-col items-center justify-center space-y-6">
+                <div class="relative p-[2px] rounded-[2.5rem] bg-gradient-to-r from-emerald-400 via-blue-500 to-emerald-400 shadow-2xl">
+                    <div class="px-10 py-6 bg-white rounded-[2.4rem] flex flex-col items-center">
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em] mb-3">Visionary Leadership</p>
+                        <p class="text-base md:text-xl font-black text-slate-900 tracking-widest uppercase text-center leading-relaxed">
+                            BUILT BY <span class="text-emerald-600">SATHWIK REDDY</span> <span class="text-slate-300 mx-2">&</span> <span class="text-blue-600">VINAY</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="relative px-8 py-3 bg-emerald-600 text-white rounded-full font-black text-xs md:text-sm uppercase tracking-[0.3em] flex items-center space-x-3 shadow-xl">
+                    <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    <span>APK IS READY — SCROLL DOWN TO DOWNLOAD</span>
+                </div>
+            </div>
+            <div class="mt-16 opacity-30 flex flex-col items-center">
+                <p class="text-xs font-black uppercase tracking-[0.5em] mb-4">Scroll to discover</p>
+                <div class="w-px h-12 bg-slate-900"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Partners -->
+    <section class="py-12 bg-white border-y border-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] mb-8">Integrations & Ecosystem Partners</p>
+            <div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-40 grayscale">
+                <span class="text-xl md:text-2xl font-black uppercase">cleanenergy hub</span>
+                <span class="text-xl md:text-2xl font-black uppercase">urbangrid</span>
+                <span class="text-xl md:text-2xl font-black uppercase">ecomotion</span>
+                <span class="text-xl md:text-2xl font-black uppercase">powerflow</span>
+                <span class="text-xl md:text-2xl font-black uppercase">smartroute</span>
+                <span class="text-xl md:text-2xl font-black uppercase">greenlink</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-40 bg-slate-50 relative overflow-hidden scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-24 text-center reveal">
+                <h2 class="text-sm font-black text-emerald-600 uppercase tracking-[0.6em] mb-4">The Ecosystem</h2>
+                <p class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none">Charging, redefined.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="p-12 rounded-[4rem] bg-white border border-slate-100 shadow-xl reveal">
+                    <div class="w-24 h-24 rounded-3xl bg-emerald-600 text-white flex items-center justify-center mb-10"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14H11V21L20 10H13Z"></path></svg></div>
+                    <h3 class="text-4xl font-black text-slate-900 mb-2 tracking-tighter">For EV Drivers</h3>
+                    <p class="text-xl text-slate-500 font-medium mb-12">Predictable journeys start here.</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-center text-xl font-bold text-slate-700"><div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-4">✓</div> Real-time availability</li>
+                        <li class="flex items-center text-xl font-bold text-slate-700"><div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-4">✓</div> Instant slot booking</li>
+                        <li class="flex items-center text-xl font-bold text-slate-700"><div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-4">✓</div> Zero-friction payments</li>
+                    </ul>
+                </div>
+                <div class="p-12 rounded-[4rem] bg-white border border-slate-100 shadow-xl reveal">
+                    <div class="w-24 h-24 rounded-3xl bg-blue-600 text-white flex items-center justify-center mb-10"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"></path></svg></div>
+                    <h3 class="text-4xl font-black text-slate-900 mb-2 tracking-tighter">For Station Partners</h3>
+                    <p class="text-xl text-slate-500 font-medium mb-12">Maximize your uptime.</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-center text-xl font-bold text-slate-700"><div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-4">✓</div> Demand management</li>
+                        <li class="flex items-center text-xl font-bold text-slate-700"><div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-4">✓</div> Smart load balancing</li>
+                        <li class="flex items-center text-xl font-bold text-slate-700"><div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-4">✓</div> Partner dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download -->
+    <section id="app" class="py-40 bg-white relative overflow-hidden scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-24">
+                <div class="lg:w-1/2 space-y-12 reveal">
+                    <h2 class="text-sm font-black text-blue-600 uppercase tracking-[0.6em] mb-6">Mobile First</h2>
+                    <h3 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none mb-10">The charging <br> <span class="text-blue-600">command center.</span></h3>
+                    <p class="text-2xl text-slate-500 font-medium leading-tight max-w-xl">Real-time booking, station health checks, and seamless navigation. Built to be the fastest tool in your EV toolkit.</p>
+                    <a href="https://drive.google.com/file/d/1n58OZPh9hfD9xftpmr1hIKSLWBdnJYFR/view" target="_blank" class="inline-flex px-12 py-6 bg-slate-900 text-white rounded-3xl items-center shadow-2xl hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 mr-5">
+                            <svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10" stroke-linecap="round"></circle><path d="M50 20 L35 55 L50 55 L45 80 L65 40 L50 40 Z" fill="#3b82f6"></path></svg>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-[10px] font-black uppercase tracking-widest opacity-50 mb-1">Available Now</div>
+                            <div class="text-xl font-black tracking-tight">Download APK</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 reveal">
+                    <div class="relative z-10 mx-auto w-80 h-[650px] bg-slate-900 rounded-[3.5rem] p-4 shadow-2xl border-[10px] border-slate-800 -rotate-3 hover:rotate-0 transition-transform duration-700">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-800 rounded-b-3xl"></div>
+                        <div class="w-full h-full bg-white rounded-[2.5rem] flex flex-col items-center justify-center p-8">
+                            <div class="w-24 h-24 mb-8"><svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10" stroke-linecap="round" /><path d="M50 20 L35 55 L50 55 L45 80 L65 40 L50 40 Z" fill="#3b82f6" /></svg></div>
+                            <div class="space-y-4 w-full">
+                                <div class="h-10 w-full bg-slate-50 rounded-2xl"></div>
+                                <div class="h-10 w-full bg-emerald-600 rounded-2xl"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="py-40 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-24 text-center reveal">
+                <h2 class="text-sm font-black text-blue-600 uppercase tracking-[0.6em] mb-4">Development</h2>
+                <p class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none">The honest <span class="text-blue-600">path.</span></p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="p-10 rounded-[3rem] bg-slate-50 reveal"><div class="text-[10px] font-black text-blue-500 uppercase mb-4">Phase 01</div><h4 class="text-2xl font-black mb-2 tracking-tighter">Core Stability</h4><div class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-slate-900 text-white mb-6">Completed</div><p class="text-slate-500 font-bold">Hardening real-time booking engines and protocols.</p></div>
+                <div class="p-10 rounded-[3rem] bg-slate-50 reveal"><div class="text-[10px] font-black text-blue-500 uppercase mb-4">Phase 02</div><h4 class="text-2xl font-black mb-2 tracking-tighter">Early Access</h4><div class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-500 text-white mb-6">Live</div><p class="text-slate-500 font-bold">Direct APK rollout for power users in select hubs.</p></div>
+                <div class="p-10 rounded-[3rem] bg-slate-50 reveal"><div class="text-[10px] font-black text-blue-500 uppercase mb-4">Phase 03</div><h4 class="text-2xl font-black mb-2 tracking-tighter">Grid Sync</h4><div class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-slate-200 text-slate-500 mb-6">Coming Q3</div><p class="text-slate-500 font-bold">Integration with utility providers for smart load.</p></div>
+                <div class="p-10 rounded-[3rem] bg-slate-50 reveal"><div class="text-[10px] font-black text-blue-500 uppercase mb-4">Phase 04</div><h4 class="text-2xl font-black mb-2 tracking-tighter">National Link</h4><div class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-slate-200 text-slate-500 mb-6">Planned</div><p class="text-slate-500 font-bold">Expanding the mesh to major highway corridors.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="about" class="py-40 bg-white overflow-hidden relative scroll-mt-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-sm font-black text-emerald-600 uppercase tracking-[0.6em] mb-6">Our Core</h2>
+                    <h3 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none mb-10">Honesty is our <br> <span class="gradient-text">highest value.</span></h3>
+                    <p class="text-2xl text-slate-500 font-medium mb-12">We aren't here to build just another app. We are here to fix the broken trust in infrastructure through radical transparency.</p>
+                    <div class="p-10 rounded-[3rem] bg-slate-900 text-white"><p class="text-2xl font-bold italic">"Zero hype. Just functional, reliable infrastructure for the Indian road."</p></div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-8 reveal">
+                    <div class="p-12 rounded-[4rem] bg-slate-50"><div class="w-16 h-16 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-2xl font-black mb-8">S</div><h4 class="text-2xl font-black text-slate-900">Sathwik Reddy</h4><p class="text-emerald-600 text-xs font-black uppercase tracking-widest mb-4">Founder</p><p class="text-slate-500 font-bold">Engineering future mobility.</p></div>
+                    <div class="p-12 rounded-[4rem] bg-slate-50"><div class="w-16 h-16 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-2xl font-black mb-8">V</div><h4 class="text-2xl font-black text-slate-900">Vinay</h4><p class="text-emerald-600 text-xs font-black uppercase tracking-widest mb-4">Co-Founder</p><p class="text-slate-500 font-bold">Optimizing for scale.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-40 bg-white text-center">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-6xl md:text-9xl font-black text-slate-900 tracking-tighter mb-16">Let's <span class="gradient-text">talk.</span></h2>
+            <p class="text-2xl md:text-3xl text-slate-500 font-medium mb-20 max-w-3xl mx-auto">Feedback or partnerships, we're one email away.</p>
+            <a href="mailto:myvoltbay@gmail.com" class="inline-flex px-16 py-8 bg-slate-900 text-white rounded-[2rem] items-center gap-6 shadow-2xl hover:bg-emerald-600 transition-all">
+                <div class="text-left"><div class="text-[10px] font-black uppercase opacity-40 mb-1">Direct Email</div><div class="text-2xl md:text-4xl font-black tracking-tighter">myvoltbay@gmail.com</div></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-3"><div class="w-12 h-12"><svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10" stroke-linecap="round" /><path d="M50 20 L35 55 L50 55 L45 80 L65 40 L50 40 Z" fill="#3b82f6" /></svg></div><span class="text-3xl font-black tracking-tighter">VoltBay</span></div>
+                    <p class="text-xl text-slate-400 font-bold max-w-sm">Engineering honest infrastructure for the electric age.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-20">
+                    <div class="space-y-6"><div class="text-[10px] font-black text-slate-300 uppercase">Ecosystem</div><ul class="space-y-4 text-sm font-black uppercase"><li><a href="#features" class="hover:text-emerald-600">Drivers</a></li><li><a href="#app" class="hover:text-emerald-600">Download</a></li></ul></div>
+                    <div class="space-y-6"><div class="text-[10px] font-black text-slate-300 uppercase">Company</div><ul class="space-y-4 text-sm font-black uppercase"><li><a href="#about" class="hover:text-emerald-600">Mission</a></li><li><a href="mailto:myvoltbay@gmail.com" class="hover:text-emerald-600">Support</a></li></ul></div>
+                    <div class="space-y-6"><div class="text-[10px] font-black text-slate-300 uppercase">Status</div><div class="flex items-center space-x-2"><div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div><span class="text-xs font-black">v1.0.4 Live</span></div></div>
+                </div>
+            </div>
+            <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em]">Built with Integrity in India • © 2026 VoltBay</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
