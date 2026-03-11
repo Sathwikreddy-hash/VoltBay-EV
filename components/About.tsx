@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 
 export const About: React.FC = () => {
   const founders = [
-    { name: "Sathwik", role: "Founder", initial: "S", bio: "Engineering the future of smart mobility." },
-    { name: "Vinay", role: "Co-Founder", initial: "V", bio: "Optimizing operations for scale." }
+    { name: "Sathwik", role: "Founder", initial: "S", bio: "Engineering the future of smart mobility." }
   ];
 
   return (
@@ -31,7 +30,7 @@ export const About: React.FC = () => {
             </div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div className="flex justify-center">
             {founders.map((founder, i) => (
               <motion.div
                 key={i}
@@ -39,7 +38,7 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
                 viewport={{ once: true }}
-                className="p-12 rounded-[4rem] bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-emerald-100 group"
+                className="p-12 rounded-[4rem] bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-emerald-100 group max-w-sm w-full"
               >
                 <div className="w-20 h-20 rounded-3xl bg-slate-900 text-white flex items-center justify-center text-4xl font-black mb-8 group-hover:scale-110 transition-transform">
                   {founder.initial}

@@ -31,7 +31,7 @@ export const Trust: React.FC = () => {
             className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter"
           >
             Built on <span className="text-emerald-600">Integrity.</span>
-          </p>
+          </motion.p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

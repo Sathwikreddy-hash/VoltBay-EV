@@ -93,7 +93,7 @@ export const Hero: React.FC = () => {
                   Visionary Leadership
                 </p>
                 <p className="text-base md:text-xl font-black text-slate-900 tracking-widest uppercase text-center leading-relaxed relative z-10">
-                  BUILT BY <span className="text-emerald-600">SATHWIK REDDY</span> <span className="text-slate-400 text-xs font-bold">(FOUNDER)</span> <span className="text-slate-300 mx-2">&</span> <span className="text-blue-600">VINAY</span> <span className="text-slate-400 text-xs font-bold">(CO-FOUNDER)</span>
+                  BUILT BY <span className="text-emerald-600">SATHWIK REDDY</span> <span className="text-slate-400 text-xs font-bold">(FOUNDER)</span>
                 </p>
               </div>
             </div>
