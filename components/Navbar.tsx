@@ -24,42 +24,53 @@ export const Navbar: React.FC = () => {
       <motion.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[60] w-[92%] max-w-7xl glass rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl"
+        className="sticky top-0 left-0 right-0 z-[60] w-full bg-white/80 backdrop-blur-md border-b border-slate-100"
       >
-        <div className="px-4 md:px-8 flex justify-between h-16 md:h-20 items-center">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           {/* Brand & Status */}
           <div 
-            className="flex items-center space-x-2 md:space-x-3 group cursor-pointer" 
+            className="flex items-center space-x-3 group cursor-pointer" 
             onClick={() => {
               window.scrollTo({top: 0, behavior: 'smooth'});
               setIsOpen(false);
             }}
           >
-            <div className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110">
+            <div className="w-10 h-10 transition-transform group-hover:scale-110">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" strokeWidth="10" strokeLinecap="round" />
                 <path d="M50 20 L35 55 L50 55 L45 80 L65 40 L50 40 Z" fill="#3b82f6" />
               </svg>
             </div>
             <div className="flex items-baseline space-x-2">
-              <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter">VoltBay</span>
-              <div className="flex items-center space-x-1 px-1.5 md:px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 flex-shrink-0">
-                <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span className="text-[8px] md:text-[10px] font-black text-emerald-600 uppercase tracking-widest">Live</span>
+              <span className="text-2xl font-black text-slate-900 tracking-tighter">VoltBay</span>
+              <div className="flex items-center space-x-1 px-2 py-0.5 rounded-full bg-emerald-500 border border-emerald-400">
+                <div className="w-1 h-1 rounded-full bg-white animate-pulse"></div>
+                <span className="text-[10px] font-black text-white uppercase tracking-widest">Live</span>
               </div>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10 text-sm font-black text-slate-500 uppercase tracking-widest">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:text-emerald-600 transition-colors">
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-xs font-black text-slate-500 uppercase tracking-widest hover:text-emerald-600 transition-colors"
+              >
                 {link.name}
               </a>
             ))}
-            <a href="mailto:myvoltbay@gmail.com" className="px-8 py-3 bg-slate-900 text-white rounded-2xl hover:bg-emerald-600 transition-all shadow-xl shadow-slate-900/10">
-              Get Support
-            </a>
+            <motion.a 
+              href="https://voltbay.lovable.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-slate-900/10"
+            >
+              Launch App
+            </motion.a>
           </div>
 
           {/* Mobile Menu Toggle */}

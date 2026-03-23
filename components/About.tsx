@@ -3,56 +3,74 @@ import { motion } from 'framer-motion';
 
 export const About: React.FC = () => {
   const founders = [
-    { name: "Sathwik", role: "Founder", initial: "S", bio: "Engineering the future of smart mobility." }
+    { name: "Sathwik Reddy", role: "Founder & Lead Engineer", initial: "SR", bio: "Engineering the future of smart mobility through radical transparency and technical excellence." }
   ];
 
   return (
     <section id="about" className="py-40 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-24 items-center mb-40">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-sm font-black text-emerald-600 uppercase tracking-[0.6em] mb-6">Our Core</h2>
-            <h3 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none mb-10">
-              Honesty is our <br /> <span className="gradient-text">highest value.</span>
+            <h2 className="text-xs font-black text-emerald-600 uppercase tracking-[0.4em] mb-8">Our Philosophy</h2>
+            <h3 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.85] mb-12">
+              Honesty is our <br /> <span className="text-slate-400">highest value.</span>
             </h3>
-            <p className="text-2xl text-slate-500 font-medium leading-tight mb-12">
-              We aren't here to build just another app. We are here to fix the broken trust in charging infrastructure through radical transparency.
+            <p className="text-xl md:text-2xl text-slate-500 font-bold leading-tight mb-16 max-w-xl">
+              We aren't here to build just another app. We are here to fix the broken trust in charging infrastructure through radical transparency and engineering integrity.
             </p>
-            <div className="p-10 rounded-[3rem] bg-slate-900 text-white relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500 blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <p className="text-2xl font-bold italic leading-relaxed relative z-10">
+            
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="p-12 rounded-[3rem] bg-slate-900 text-white relative overflow-hidden group shadow-2xl shadow-slate-900/20"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 blur-[100px] opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
+              <p className="text-2xl md:text-3xl font-black italic leading-tight relative z-10 tracking-tight">
                 "Zero hype. Just functional, reliable infrastructure for the Indian road."
               </p>
-            </div>
+              <div className="mt-8 flex items-center space-x-4 relative z-10">
+                <div className="w-12 h-px bg-emerald-500"></div>
+                <span className="text-xs font-black uppercase tracking-widest text-emerald-500">The VoltBay Promise</span>
+              </div>
+            </motion.div>
           </motion.div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center lg:justify-end">
             {founders.map((founder, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className="p-12 rounded-[4rem] bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-emerald-100 group max-w-sm w-full"
+                className="relative p-12 rounded-[4rem] bg-slate-50 border border-slate-100 max-w-md w-full group hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500"
               >
-                <div className="w-20 h-20 rounded-3xl bg-slate-900 text-white flex items-center justify-center text-4xl font-black mb-8 group-hover:scale-110 transition-transform">
+                <div className="w-24 h-24 rounded-3xl bg-slate-900 text-white flex items-center justify-center text-4xl font-black mb-10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-xl">
                   {founder.initial}
                 </div>
-                <h4 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter">{founder.name}</h4>
-                <div className="text-xs font-black text-emerald-600 uppercase tracking-[0.3em] mb-6">{founder.role}</div>
-                <p className="text-slate-500 font-bold leading-snug">{founder.bio}</p>
+                <h4 className="text-4xl font-black text-slate-900 mb-2 tracking-tighter">{founder.name}</h4>
+                <div className="text-[10px] font-black text-emerald-600 uppercase tracking-[0.4em] mb-8">{founder.role}</div>
+                <p className="text-xl text-slate-500 font-bold leading-tight mb-10">{founder.bio}</p>
+                
+                <div className="flex items-center space-x-4 pt-10 border-t border-slate-200">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-200 transition-all cursor-pointer">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-200 transition-all cursor-pointer">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
 
         {/* Growth Stats Concept - High impact rolling animation */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-20 border-y border-slate-100">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 py-24 border-y border-slate-100">
           {[
             { label: "Availability", val: "99.9%" },
             { label: "Network nodes", val: "Active" },
@@ -62,13 +80,13 @@ export const About: React.FC = () => {
             <motion.div 
               key={i} 
               className="text-center"
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
             >
-              <div className="text-4xl font-black text-slate-900 mb-2 tracking-tighter uppercase">{stat.val}</div>
-              <div className="text-xs font-black text-slate-400 uppercase tracking-widest">{stat.label}</div>
+              <div className="text-5xl font-black text-slate-900 mb-4 tracking-tighter uppercase">{stat.val}</div>
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">{stat.label}</div>
             </motion.div>
           ))}
         </div>
